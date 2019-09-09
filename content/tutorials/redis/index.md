@@ -61,7 +61,7 @@ First make sure your module compiles (you should be able to simply _cargo build_
 Next, use the `wascap` tool and some keys you should have generated in the previous tutorial to sign the module:
 
 ```session
-$ wascap sign -a ~/waxosuit/iot-example/keys/demo_account.nk -m ~/waxosuit/iot-example/keys/sensorservice.nk -s -k target/wasm32-unknown-unknown/debug/hello_world.wasm ./hello.wasm
+$ wascap sign -a ./.keys/account.nk -m ./.keys/module.nk -s -k target/wasm32-unknown-unknown/debug/hello_world.wasm ./hello.wasm
 Successfully signed ./hello.wasm.
 ```
 Note that the paths to your keys will likely be different. 
@@ -108,7 +108,7 @@ Let's start up **waxosuit** and exercise this code. Keep in mind this tutorial c
 
 
 ```session
-$ RUST_LOG=info,cranelift_wasm=warn waxosuit hello.wasm --caps /home/kevin/waxosuit/waxosuit/target/debug 
+$ RUST_LOG=info,cranelift_wasm=warn waxosuit hello.wasm --caps ~/waxosuit/target/release 
 [2019-07-05T15:35:35Z INFO  waxosuit_host::capabilities] Loaded capability: wascap:http_server, provider: Actix-Web HTTP Server
 [2019-07-05T15:35:35Z INFO  wascap_httpsrv] Dispatcher received.
 [2019-07-05T15:35:35Z INFO  waxosuit] Capability provider wascap:http_server loaded
